@@ -12,10 +12,17 @@ public class EnemyMovement : MonoBehaviour
 
     public bool isEnabled = true;
     private Rigidbody rb;
+    public float distanceToPlayer;
+
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        playerTransform = FindFirstObjectByType<PlayerStats>().transform;
+        transform.LookAt(playerTransform);
+
+
     }
 
     // Update is called once per frame
@@ -23,7 +30,7 @@ public class EnemyMovement : MonoBehaviour
     {
         if (isEnabled)
         {
-            float distanceToPlayer = (transform.position - playerTransform.position).sqrMagnitude;
+            distanceToPlayer = (transform.position - playerTransform.position).sqrMagnitude;
 
             if(distanceToPlayer > distanceToStopFromPlayer)
             {
