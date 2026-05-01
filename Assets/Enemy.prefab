@@ -179,6 +179,8 @@ MonoBehaviour:
   timeToAttack: 3
   isCloseToAttack: 0
   enemyRenderer: {fileID: 7381513756262319994}
+  deathParticle: {fileID: 3802330440462721002, guid: a628241e287fe9f4a8d25cdc43300fa4, type: 3}
+  experiencePrefab: {fileID: 6194826239207824876, guid: 5324f565a568c2a4ab8db1316f4151ae, type: 3}
 --- !u!1001 &7464399104425230118
 PrefabInstance:
   m_ObjectHideFlags: 0

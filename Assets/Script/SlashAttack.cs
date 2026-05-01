@@ -24,13 +24,13 @@ public class SlashAttack : MonoBehaviour
         if(attackCounter < attackTimer)
         {
             attackCounter += Time.deltaTime;
-            if(attackCounter >= attackTimer) 
-            {
-                attackCounter = 0f;
-                AttackClosestEnemy();
-                
 
-            }
+        }
+        if(attackCounter >= attackTimer) 
+        {
+            attackCounter = 0f;
+            AttackClosestEnemy();
+                
         }
     }
 

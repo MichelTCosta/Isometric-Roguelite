@@ -5,6 +5,7 @@ public class EnemyStats : MonoBehaviour
     //Private References
     private PlayerStats playerStats;
 
+
     [Header("Enemy Stats")]
     public int currentHealth;
     public int damage;
@@ -15,6 +16,10 @@ public class EnemyStats : MonoBehaviour
     public bool isCloseToAttack;
     public Renderer enemyRenderer;
     private EnemyManager enemyManager;
+    public GameObject deathParticle;
+
+
+    public GameObject experiencePrefab;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -39,7 +44,7 @@ public class EnemyStats : MonoBehaviour
         if(enemyRenderer != null)
         {
             enemyRenderer.material.color = Color.black;
-            Invoke("ResetColor", 0.1f);
+            Invoke("ResetColor", 0.2f);
         }
         if(currentHealth <= 0)
         {
@@ -54,6 +59,8 @@ public class EnemyStats : MonoBehaviour
 
     public void Death()
     {
+        Instantiate(experiencePrefab, transform.position, Quaternion.identity);
+        Instantiate(deathParticle, transform.position, Quaternion.identity);
         enemyManager.RemoveFromList(this.gameObject);
         Destroy(this.gameObject);
     }
